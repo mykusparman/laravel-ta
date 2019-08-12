@@ -18,9 +18,10 @@
                                     <th>Title</th>
                                     <th>Description</th>
                                     <th>Date</th>
+                                    <th>Expired</th>
                                     <th>Goal</th>
                                     <th>Status</th>
-                                    <th>Gambar</th>
+                                    <th>Cover</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -34,13 +35,18 @@
                                     <td>{{ $c->title }}</td>
                                     <td>{!! $c->description !!}</td>
                                     <td>{{ $c->date }}</td>
+                                    <td>{{ $c->expired }}</td>
                                     <td>Rp. {{ number_format($c->goal) }}</td>
                                     <td>{{ $c->status }}</td>
                                     <td><img src="{{ url('/images/campaign/'.$c->gambar) }}" width="250px" height="150px" alt="logo"></td>
                                     <td>
-                                    <a href="/campaign/edit/{{ $c->id }}"><button class="btn btn-default"><span class="fa fa-pencil"></span></button>
-                                    <a href="{{ url('campaign/hapus',$c->id) }}"><button class="btn btn-default"><span class="fa fa-trash"></span></button>
-                                    {{-- <a href="/campaign/ambil/{{ $s->id }}"><button class="btn btn-default"><span class="fa fa-copy"></span> Campaign</button> --}}
+                                    <a href="/campaign/edit/{{ $c->id }}"><button class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Edit Donation"><span class="fa fa-pencil"></span></button>
+                                    {{-- <a href="{{ url('campaign/hapus',$c->id) }}"><button class="btn btn-default"><span class="fa fa-trash"></span></button> --}}
+                                    @if($c->status == 'open')
+                                    <a href="{{ url('campaign/updatestatus/'.$c->id) }}"><button class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Close Donation"><span class="fa fa-close"></span></button>
+                                    @else
+                                    <a href="/laporan/tambah/{{ $c->id }}"><button class="btn btn-default"><span class="fa fa-file"></span>Penyaluran</button>
+                                    @endif
                                     </td>
                                 </tr>
                             @endforeach

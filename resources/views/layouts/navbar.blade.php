@@ -39,20 +39,20 @@
 					<li><a href="#">About</a></li>
 					<li class="has-dropdown"><a href="#">Campaign</a>
 						<ul class="dropdown">
-							<li><a href="single-cause.html">Sosok Mulia Campaign</a></li>
+							<li><a href="#">Sosok Mulia Campaign</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown"><a href="#">Events</a>
 						<ul class="dropdown">
-							<li><a href="single-event.html">Single event</a></li>
+							<li><a href="#">Distribution of Donations</a></li>
 						</ul>
 					</li>
-					<li class="has-dropdown"><a href="#">Blog</a>
+				{{-- 	<li class="has-dropdown"><a href="#">Blog</a>
 						<ul class="dropdown">
 							<li><a href="blog.html">Blog Page</a></li>
 							<li><a href="single-blog.html">Single Blog</a></li>
 						</ul>
-					</li>
+					</li> --}}
 					@if (Auth::check())
                     <li class="has-dropdown">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
@@ -83,56 +83,5 @@
 		<!-- /NAVGATION -->
 
 		<!-- HOME OWL -->
-		
-		<div id="home-owl" class="owl-carousel owl-theme">
-			<!-- home item -->
-			<div class="home-item">
-				<!-- section background -->
-				<div class="section-bg" style="background-image: url({{ asset('asset') }}/img/knb1.jpg);"></div>
-				<!-- /section background -->
-
-				<!-- home content -->
-				<div class="home">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-8">
-								<div class="home-content">
-									<h1>#SayNoToNgemis</h1>
-									<p class="lead">Save Them</p>
-									<a href="#" class="primary-button">View Campaign</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /home content -->
-			</div>
-			<!-- /home item -->
-
-			<!-- home item -->
-			<div class="home-item">
-				<!-- Background Image -->
-				<div class="section-bg" style="background-image: url({{ asset('asset') }}/img/logoknb2.png);"></div>
-				<!-- /Background Image -->
-
-				<!-- home content -->
-				<div class="home">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-8">
-								<div class="home-content">
-									<h1>Become A Volunteer</h1>
-									<p class="lead">Help Others to be Happy Together</p>
-									<a href="#" class="primary-button">Join Us Now!</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /home content -->
-			</div>
-			<!-- /home item -->
-		</div>
-		<!-- /HOME OWL -->
 	</header>
 	<!-- /HEADER -->

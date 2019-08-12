@@ -163,7 +163,7 @@ class DonationController extends Controller
 
     public function finish()
     {
-        return redirect('/campaign/detail/{id}');
+        return redirect('/donatur');
     }
 
     public function ambil($id)

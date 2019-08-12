@@ -2,6 +2,62 @@
 @section('title','Ketimbang Ngemis Bandung')
 
 @section('content')
+
+	<div id="home-owl" class="owl-carousel owl-theme">
+			<!-- home item -->
+			<div class="home-item">
+				<!-- section background -->
+				<div class="section-bg">
+					<img src="{{ asset('asset/img/knb1.jpg') }}">
+				</div>
+				<!-- /section background -->
+
+				<!-- home content -->
+				<div class="home">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8">
+								<div class="home-content">
+									<h1 style="color: black">#SayNoToNgemis</h1>
+									<p class="lead" style="color: black">Save Them</p>
+									{{-- <a href="#" class="primary-button">View Campaign</a> --}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /home content -->
+			</div>
+			<!-- /home item -->
+
+			<!-- home item -->
+			<div class="home-item">
+				<!-- Background Image -->
+				<div class="section-bg">
+					<img src="{{ asset('asset/img/knb3.jpg') }}">
+				</div>
+				<!-- /Background Image -->
+
+				<!-- home content -->
+				<div class="home">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8">
+								<div class="home-content">
+									<h1 style="color: black">Become A Volunteer</h1>
+									<p class="lead" style="color: black">Help Others to be Happy Together</p>
+									{{-- <a href="#" class="primary-button">Join Us Now!</a> --}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /home content -->
+			</div>
+			<!-- /home item -->
+		</div>
+		<!-- /HOME OWL -->
+
 <!-- ABOUT -->
 	<div id="about" class="section">
 		<!-- container -->
@@ -109,24 +165,34 @@
 					<div class="causes">
 						<div class="causes-img">
 							<a href="campaign/detail/{{ $c->id }}">
-									<img src="{{ url('/images/campaign/'.$c->gambar) }}" alt="">
+									<img src="{{ url('/images/campaign/'.$c->gambarnya) }}" alt="">
 								</a>
 						</div>
-						{{-- <div class="causes-progress">
+						<div class="causes-progress">
 							<div class="causes-progress-bar">
-								<div style="width: 87%;">
-									<span>87%</span>
+								@php
+									$persen= ($c->total_amount/$c->goal)*100;
+									$datetime1 = new DateTime($c->date);
+									$datetime2 = new DateTime($c->expired);
+									$interval = $datetime1->diff($datetime2);
+									$days = $interval->format('%a');//now do whatever you like with $days
+								@endphp	
+								<div style="width: {{ $persen }}%;">
+									<span>{{ number_format($persen,2) }}</span>
 								</div>
 							</div>
 							<div>
-								<span class="causes-raised">Raised: <strong>52.000$</strong></span>
+								<span class="causes-raised">Raised: <strong>Rp. {{ number_format($c->total_amount)}}</strong></span>
 								<span class="causes-goal">Goal: <strong>Rp. {{ number_format($c->goal)}}</strong></span>
 							</div>
-						</div> --}}
+							<div>
+								<span class="causes-raised">Waktu Donasi {{ $days }} Hari Lagi</span>
+							</div>
+						</div>
 						<div class="causes-content">
-							<h3><a href="campaign/detail/{{ $c->id }}">{{ $c->title }}</a></h3>
+							<h3><a href="{{ url('/campaign/detail/'.$c->idnya) }}">{{ $c->title }}</a></h3>
 							{{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> --}}
-							<a href="campaign/detail/{{ $c->id }}" class="primary-button causes-donate">Donate Now</a>
+							<a href="{{ url('/campaign/detail/'.$c->idnya) }}" class="primary-button causes-donate">Donate Now</a>
 						</div>
 					</div>
 				</div>
@@ -282,7 +348,7 @@
 	<!-- /CAUSESS -->
 
 	<!-- CTA -->
-	<div id="cta" class="section">
+	{{-- <div id="cta" class="section">
 		<!-- background section -->
 		<div class="section-bg" style="background-image: url(./img/background-1.jpg);" data-stellar-background-ratio="0.5"></div>
 		<!-- /background section -->
@@ -304,7 +370,7 @@
 			<!-- /row -->
 		</div>
 		<!-- /container -->
-	</div>
+	</div> --}}
 	<!-- /CTA -->
 
 	<!-- EVENTS -->
@@ -316,92 +382,34 @@
 				<!-- section title -->
 				<div class="col-md-8 col-md-offset-2">
 					<div class="section-title text-center">
-						<h2 class="title">Upcoming Events</h2>
-						<p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<h2 class="title">Distribution of Donations</h2>
+						<p class="sub-title">Penyaluran Kepada Sosok Mulia</p>
 					</div>
 				</div>
 				<!-- /section title -->
 
 				<!-- event -->
+				@foreach($laporan as $l)
 				<div class="col-md-6">
 					<div class="event">
 						<div class="event-img">
-							<a href="single-event.html">
-								<img src="./img/event-1.jpg" alt="">
+							<a href="#">
+								<img src="{{ url('/images/laporan/'.$l->gambar) }}" alt="">
 							</a>
 						</div>
 						<div class="event-content">
-							<h3><a href="single-event.html">Possit nostro aeterno eu vis, ut cum quem reque</a></h3>
+							<h3><a href="">{{ $l->title }}</a></h3>
 							<ul class="event-meta">
-								<li><i class="fa fa-clock-o"></i> 24 October, 2018 | 8:00AM - 11:00PM</li>
-								<li><i class="fa fa-map-marker"></i> 2736 Hinkle Deegan Lake Road</li>
+								<li><i class="fa fa-clock-o"></i>{{ $l->date }}</li>
+								<li><i class="fa fa-clock-o"></i>{{ $l->nama }}</li>
+								<li><i class="fa fa-clock-o"></i>{{ $l->pekerjaan }}</li>
+								{{-- <li><i class="fa fa-map-marker"></i> 2736 Hinkle Deegan Lake Road</li> --}}
 							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							{{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> --}}
 						</div>
 					</div>
 				</div>
-				<!-- /event -->
-
-				<!-- event -->
-				<div class="col-md-6">
-					<div class="event">
-						<div class="event-img">
-							<a href="single-event.html">
-								<img src="./img/event-2.jpg" alt="">
-							</a>
-						</div>
-						<div class="event-content">
-							<h3><a href="single-event.html">Vix fuisset tibique facilisis cu. Justo accusata ius at</a></h3>
-							<ul class="event-meta">
-								<li><i class="fa fa-clock-o"></i> 24 October, 2018 | 8:00AM - 11:00PM</li>
-								<li><i class="fa fa-map-marker"></i> 2736 Hinkle Deegan Lake Road</li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						</div>
-					</div>
-				</div>
-				<!-- /event -->
-
-				<div class="clearfix visible-md visible-lg"></div>
-
-				<!-- event -->
-				<div class="col-md-6">
-					<div class="event">
-						<div class="event-img">
-							<a href="single-event.html">
-								<img src="./img/event-3.jpg" alt="">
-							</a>
-						</div>
-						<div class="event-content">
-							<h3><a href="single-event.html">Possit nostro aeterno eu vis, ut cum quem reque</a></h3>
-							<ul class="event-meta">
-								<li><i class="fa fa-clock-o"></i> 24 October, 2018 | 8:00AM - 11:00PM</li>
-								<li><i class="fa fa-map-marker"></i> 2736 Hinkle Deegan Lake Road</li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						</div>
-					</div>
-				</div>
-				<!-- /event -->
-
-				<!-- event -->
-				<div class="col-md-6">
-					<div class="event">
-						<div class="event-img">
-							<a href="single-event.html">
-								<img src="./img/event-4.jpg" alt="">
-							</a>
-						</div>
-						<div class="event-content">
-							<h3><a href="single-event.html">Vix fuisset tibique facilisis cu. Justo accusata ius at</a></h3>
-							<ul class="event-meta">
-								<li><i class="fa fa-clock-o"></i> 24 October, 2018 | 8:00AM - 11:00PM</li>
-								<li><i class="fa fa-map-marker"></i> 2736 Hinkle Deegan Lake Road</li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						</div>
-					</div>
-				</div>
+				@endforeach
 				<!-- /event -->
 			</div>
 			<!-- /row -->

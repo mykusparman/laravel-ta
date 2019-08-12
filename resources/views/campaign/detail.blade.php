@@ -36,7 +36,7 @@
 									</div>
 									<div>
 										<span class="causes-raised">Raised: <strong>Rp. {{ number_format($total->sum('amount')) }}</strong></span>
-										<span class="causes-goal">Goal: <strong>Rp. {{ number_format($campaign->goal) }}</strong></span>
+										<span class="causes-goal">Goal: <strong>Rp. {{ number_format($campaign->goalnya) }}</strong></span>
 									</div>
 								</div>
 								<a href="{{ url('donate/ambil/'.Request::segment(3)) }}" class="primary-button causes-donate">Donate Now</a>
@@ -55,9 +55,10 @@
 									<li>By Ketimbang Ngemis Bandung</li>
 								</ul>
 								<ul class="article-meta">
-									<li>{{ $campaign->nama }}</li>
-									<li>{{ $campaign->usia }} Tahun</li>
-									<li>{{ $campaign->pekerjaan }}</li>
+									<li>Data Sosok Mulia :</li>
+									<strong><li>{{ $campaign->nama }}</li></strong>
+									<strong><li>{{ $campaign->usia }} Tahun</li></strong>
+									<strong><li>{{ $campaign->pekerjaan }}</li></strong>
 								</ul>
 								<!-- /article meta -->
 
@@ -157,10 +158,10 @@
 
 						<!-- causes widget -->
 						<div class="widget">
-							<h3 class="widget-title">Latest Causes</h3>
+							{{-- <h3 class="widget-title">Latest Causes</h3> --}}
 
 							<!-- single causes -->
-							<div class="widget-causes">
+							{{-- <div class="widget-causes">
 								<a href="#">
 									<div class="widget-img">
 										<img src="./img/widget-1.jpg" alt="">
@@ -178,11 +179,11 @@
 									<span class="causes-raised">Raised: <strong>52.000$</strong></span> -
 									<span class="causes-goal">Goal: <strong>90.000$</strong></span>
 								</div>
-							</div>
+							</div> --}}
 							<!-- /single causes -->
 
 							<!-- single causes -->
-							<div class="widget-causes">
+							{{-- <div class="widget-causes">
 								<a href="#">
 									<div class="widget-img">
 										<img src="./img/widget-2.jpg" alt="">
@@ -200,11 +201,11 @@
 									<span class="causes-raised">Raised: <strong>52.000$</strong></span> -
 									<span class="causes-goal">Goal: <strong>90.000$</strong></span>
 								</div>
-							</div>
+							</div> --}}
 							<!-- /single causes -->
 
 							<!-- single causes -->
-							<div class="widget-causes">
+							{{-- <div class="widget-causes">
 								<a href="#">
 									<div class="widget-img">
 										<img src="./img/widget-3.jpg" alt="">
@@ -222,9 +223,10 @@
 									<span class="causes-raised">Raised: <strong>52.000$</strong></span> -
 									<span class="causes-goal">Goal: <strong>90.000$</strong></span>
 								</div>
-							</div><br>
+							</div><br> --}}
 							<!-- /single causes -->
-							<!-- category widget -->
+
+							<!-- Donatur widget -->
 							<div class="widget">
 								<h3 class="widget-title">Donatur</h3>
 								<div class="widget-category">

@@ -8,5 +8,5 @@ class Campaign extends Model
 {
     protected $table = "campaign";
 
-    protected $fillable = ['id_sokmul','title','description','date','goal','status','gambar'];
+    protected $fillable = ['id_sokmul','title','description','date','expired','goal','status','gambar'];
 }

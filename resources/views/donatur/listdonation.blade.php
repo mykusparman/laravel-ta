@@ -31,9 +31,9 @@
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $d->donor_name }}</td>
                                     <td>{{ $d->donor_email }}</td>
-                                    <td>{{ $d->donation_type }}</td>
                                     <td>Rp. {{ number_format($d->amount) }}</td>
                                     <td>{{ $d->note }}</td>
+                                    <td>{{ $d->status }}</td>
                                     {{-- <td>
                                     <a href="/sokmul/edit/{{ $d->id }}"><button class="btn btn-default"><span class="fa fa-pencil"></span></button>
                                     <a href="{{ url('sokmul/hapus',$d->id) }}"><button class="btn btn-default"><span class="fa fa-trash"></span></button>

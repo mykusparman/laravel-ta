@@ -7,6 +7,9 @@ use App\Campaign;
 use App\Sokmul;
 use App\Model\Donation;
 use Auth;
+use Validator;
+use Redirect;
+use Carbon;
 
 class CampaignController extends Controller
 {
@@ -17,8 +20,20 @@ class CampaignController extends Controller
      */
     public function index()
     {
-       $campaign= Campaign::all();
-       return view('campaign/listcampaign',compact('campaign'));
+        $campaign= Campaign::all();
+
+        $mytime = Carbon\Carbon::now();
+        $date_now=$mytime->format('Y-m-d');
+
+        foreach ($campaign as $item) {
+            if ($item->expired < $date_now) {
+                $campaign_update=Campaign::find($item->id);
+                $campaign_update->status='close';
+                $campaign_update->save();
+            }
+        }
+
+        return view('campaign/listcampaign',compact('campaign'));
 
     }
 
@@ -45,14 +60,27 @@ class CampaignController extends Controller
         $nama = rand(). '.' . $foto->getClientOriginalExtension();
         $foto->move(public_path('images/campaign/'),$nama);
 
+        $validator=Validator::make($request->all(),[
+            'title'=>'required',
+            'date'=>'date',
+            'expired'=>'date|after:date',
+            'description'=>'required'
+        ]);
+
+        if($validator->fails()) {
+            return Redirect::back()->withErrors($validator);
+        }
+
         Campaign::create([
             'id_sokmul'=>$request->id_sokmul,
             'title'=>$request->title,
             'description'=>$request->description,
             'goal'=>$request->goal,
             'date'=>$request->date,
+            'expired'=>$request->expired,
             'gambar'=>$nama
         ]);
+        $update = Sokmul::find($request->id_sokmul)->update(['status'=>'1']);
         return redirect('campaign/tampil');
     }
 
@@ -100,10 +128,22 @@ class CampaignController extends Controller
         $nama = rand() . '.' . $foto->getClientOriginalExtension();
         $foto->move(public_path('images/campaign'), $nama);
 
+        $validator=Validator::make($request->all(),[
+            'title'=>'required',
+            'date'=>'date',
+            'expired'=>'date|after:date',
+            'description'=>'required'
+        ]);
+
+        if($validator->fails()) {
+            return Redirect::back()->withErrors($validator);
+        }
+
         $data=[
             'title'=>$request->title,
             'description'=>$request->description,
             'goal'=>$request->goal,
+            'expired'=>$request->expired,
             'gambar'=>$nama
         ];
         
@@ -112,6 +152,14 @@ class CampaignController extends Controller
             $data
         );
         return redirect('campaign/tampil');
+    }
+
+    public function update_status($id)
+    {
+        $campaign=Campaign::find($id);
+        $campaign->status='close';
+        $campaign->save();
+        return back();
     }
 
     /**
@@ -129,9 +177,18 @@ class CampaignController extends Controller
 
     public function detail($id)
     {
-        $campaign=Campaign::join('sokmul','sokmul.id','campaign.id_sokmul')->select('*','campaign.gambar AS gambarnya','campaign.goal AS goalnya')->where('campaign.id',$id)->first();
-        $donation=Donation::where('id_sokmul',$campaign->id_sokmul)->where('status','success')->take(5)->latest()->get();
-        $total=Donation::where('id_campaign',$id)->where('status','success')->get();
+        $campaign=Campaign::join('sokmul','sokmul.id','campaign.id_sokmul')
+                            ->select('*','campaign.gambar AS gambarnya','campaign.goal AS goalnya')
+                            ->where('campaign.id',$id)
+                            ->first();
+        $donation=Donation::where('id_sokmul',$campaign->id_sokmul)
+                            ->where('status','success')
+                            ->take(5)
+                            ->latest()
+                            ->get();
+        $total=Donation::where('id_campaign',$id)
+                        ->where('status','success')
+                        ->get();
         $persen = ($total->sum('amount')/$campaign->goal) * 100; 
         return view('campaign/detail',compact('campaign','donation','total','persen'));
     }

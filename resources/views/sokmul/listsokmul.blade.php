@@ -9,6 +9,9 @@
                 <div class="ibox">
                     <div class="ibox-head">
                         <div class="ibox-title">Data Sokmul</div>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                          Input Sokmul
+                      </button>
                     </div>
                     <div class="ibox-body">
                         <table id="example-table" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
@@ -51,10 +54,6 @@
                     </div>
                 </div>
             </div>
-
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                  Input Sokmul
-                </button>
                 {{-- MODAL INPUT --}}
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">

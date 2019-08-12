@@ -16,7 +16,7 @@ class CreateCampaignTable extends Migration
         Schema::create('campaign', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->text('description');
+            $table->longtext('description');
             $table->date('date(Y-m-d)');
             $table->integer('goal');
             $table->enum('status',['open','close'])->default('open');

@@ -8,5 +8,5 @@ class Sokmul extends Model
 {
     protected $table="sokmul";
 
-    protected $fillable=['nama','usia','alamat','goal','catatan','pekerjaan','gambar'];
+    protected $fillable=['nama','usia','alamat','goal','catatan','pekerjaan','gambar','status'];
 }

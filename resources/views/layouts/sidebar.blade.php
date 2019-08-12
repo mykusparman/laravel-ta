@@ -98,9 +98,9 @@
                             <li>
                                 <a href="/user/tampil">List</a>
                             </li>
-                            <li>
+                          {{--   <li>
                                 <a href="/user/tambah">Input</a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </li>
                     <li>
@@ -109,9 +109,6 @@
                         <ul class="nav-2-level collapse">
                             <li>
                                 <a href="/sokmul/tampil">List</a>
-                            </li>
-                            <li>
-                                <a href="/sokmul/tambah">Input</a>
                             </li>
                         </ul>
                     </li>
@@ -127,24 +124,16 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="icons.html"><i class="sidebar-item-icon fa fa-smile-o"></i>
-                            <span class="nav-label">Icons</span>
-                        </a>
-                    </li>
                     <li class="heading">PAGES</li>
                     <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-envelope"></i>
-                            <span class="nav-label">Mailbox</span><i class="fa fa-angle-left arrow"></i></a>
+                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-cube"></i>
+                            <span class="nav-label">Penyaluran</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Inbox</a>
+                                <a href="/laporan/tampil">List</a>
                             </li>
                             <li>
-                                <a href="mail_view.html">Mail view</a>
-                            </li>
-                            <li>
-                                <a href="mail_compose.html">Compose mail</a>
+                                <a href="/laporan/tambah">Input</a>
                             </li>
                         </ul>
                     </li>
@@ -154,34 +143,13 @@
                      @if (Auth::user()->role == 'bendahara')
                     <li class="heading">FEATURES</li>
                     <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
-                            <span class="nav-label">Basic UI</span><i class="fa fa-angle-left arrow"></i></a>
-                        <ul class="nav-2-level collapse">
-                            <li>
-                                <a href="colors.html">Colors</a>
-                            </li>
-                            <li>
-                                <a href="typography.html">Typography</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-cube"></i>
                             <span class="nav-label">Donasi</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
                                 <a href="/donation/tampil">List</a>
                             </li>
-                            <li>
-                                <a href="#">Input</a>
-                            </li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="icons.html"><i class="sidebar-item-icon fa fa-smile-o"></i>
-                            <span class="nav-label">Icons</span>
-                        </a>
                     </li>
                     <li class="heading">PAGES</li>
                     <li>
@@ -189,13 +157,7 @@
                             <span class="nav-label">Mailbox</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Inbox</a>
-                            </li>
-                            <li>
-                                <a href="mail_view.html">Mail view</a>
-                            </li>
-                            <li>
-                                <a href="mail_compose.html">Compose mail</a>
+                                <a href="/email/tambah">Send</a>
                             </li>
                         </ul>
                     </li>

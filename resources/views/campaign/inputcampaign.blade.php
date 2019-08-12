@@ -37,12 +37,24 @@
                                         <label class="col-sm-2 col-form-label">Title</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" name="title" type="text" placeholder="Judul Campaign" max="60">
+                                            @if ($errors->has('title'))
+                                            <div class="error">{{ $errors->first('title') }}</div>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Date</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" name="date" type="date" value="{{ date('Y-m-d') }}">
+                                            <input class="form-control" name="date" type="date" value="{{ date('Y-m-d') }}" readonly="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Expired</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="expired" type="date" value="{{ date('Y-m-d') }}">
+                                            @if ($errors->has('expired'))
+                                            <div class="error">{{ $errors->first('expired') }}</div>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -61,6 +73,9 @@
                                         <label class="col-sm-2 col-form-label">Deskripsi</label>
                                         <div class="col-sm-10">
                                             <textarea id="summernote" name="description"></textarea>
+                                            @if ($errors->has('description'))
+                                            <div class="error">{{ $errors->first('description') }}</div>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="form-group row">

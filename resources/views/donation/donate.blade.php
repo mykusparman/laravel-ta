@@ -20,17 +20,13 @@
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label" for="donor_name">Nama</label>
 							<div class="col-sm-10">
-								<input class="form-control" id="donor_name" name="donor_name" type="text" placeholder="Nama Lengkap" value="@if (!empty(Auth::user()->name))
-								{{ Auth::user()->name }}
-								@endif" required>
+								<input class="form-control" id="donor_name" name="donor_name" type="text" placeholder="Nama Lengkap" value="{{ Auth::user()->name ? Auth::user()->name : NULL  }}" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label" for="donor_email">Email</label>
 							<div class="col-sm-10">
-								<input class="form-control" id="donor_email" name="donor_email" type="text" placeholder="Email" value="@if (!empty(Auth::user()->email))
-								{{ Auth::user()->email }}
-								@endif" required>
+								<input class="form-control" id="donor_email" name="donor_email" type="text" placeholder="Email" value="{{ Auth::user()->email ? Auth::user()->email : NULL  }}" required>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -71,6 +67,12 @@
     <script>
     function submitForm() {
         // Kirim request ajax
+        // alert(document.getElementById("anonymous").checked)
+        if (document.getElementById("anonymous").checked) {
+        	var anonymous = '1'
+        }else{
+        	var anonymous = '0'
+        }
         $.post("{{ route('donation.store') }}",
         {
             _method: 'POST',
@@ -81,7 +83,7 @@
             id_campaign: $('input#id_campaign').val(),
             donor_name: $('input#donor_name').val(),
             donor_email: $('input#donor_email').val(),
-            anonymous: $('input#anonymous').val(),
+            anonymous: anonymous,
         },
         function (data, status) {
             snap.pay(data.snap_token, {

@@ -19,12 +19,30 @@
                                         <label class="col-sm-2 col-form-label">Title</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" name="title" type="text" value="{{ $campaign->title }}">
+                                            @if ($errors->has('title'))
+                                            <div class="error">{{ $errors->first('title') }}</div>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Goal</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" name="goal" type="number" value="{{ $campaign->goal }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Date</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="date" type="date" value="{{ date('Y-m-d') }}" readonly="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Expired</label>
+                                        <div class="col-sm-10">
+                                            <input class="{{ $errors->has('expired') ? 'help-block error form-control' : 'form-control'  }}" name="expired" type="date" value="{{ $campaign->expired }}">
+                                            @if ($errors->has('expired'))
+                                            <div class="help-block error">{{ $errors->first('expired') }}</div>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="form-group row">

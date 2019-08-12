@@ -22,14 +22,6 @@ Route::get('member/{nama}','Member@coba');
 Route::get('formulir','Member@formulir');
 Route::post('formulir/proses','Member@proses');
 
-// Route::get('user/tampil','User@tampil');
-// Route::get('user/tambah','User@tambah');
-// Route::post('user/simpan','User@simpan');
-// Route::get('user/edit/{id}','User@edit');
-// Route::post('user/update','User@update');
-// Route::get('user/delete/{id}','User@delete');
-// Route::get('sokmul/','SokmulController@index');
-
 // Route Admin
 Route::get('admin/','AdminController@index')->middleware(['auth']);
 
@@ -50,6 +42,7 @@ Route::get('user/hapus/{id}','AdminController@destroy_user');
 Route::post('campaign/ambil/{id}','CampaignController@ambil');
 Route::get('campaign/tampil','CampaignController@index');
 Route::get('campaign/pilih','CampaignController@choose');
+Route::get('campaign/updatestatus/{id}','CampaignController@update_status');
 Route::get('campaign/tambah/{id}','CampaignController@create');
 Route::post('campaign/simpan','CampaignController@store');
 Route::get('campaign/detail/{id}','CampaignController@detail');
@@ -62,6 +55,11 @@ Route::get('campaign/hapus/{id}','CampaignController@destroy');
 Route::get('bendahara/','BendaharaController@index')->middleware(['auth']);
 Route::get('donation/tampil','DonationController@list');
 Route::get('donation/updatestatus/{id}','DonationController@update_status');
+Route::get('/email/tambah','EmailController@create');
+Route::post('/email/kirim','EmailController@sendEmail');
+Route::get('laporan/tampil','LaporanController@list');
+Route::get('laporan/tambah/{id}','LaporanController@create');
+Route::post('laporan/simpan','LaporanController@store');
 
 // Route Donatur
 Route::get('/donatur','DonaturController@index');

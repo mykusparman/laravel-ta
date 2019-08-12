@@ -15,13 +15,13 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Name</th>
+                                    <th>Nama</th>
                                     <th>Usia</th>
                                     <th>Alamat</th>
                                     <th>Pekerjaan</th>
                                     <th>Goal</th>
                                     <th>Catatan</th>
-                                    <th>Gambar</th>
+                                    <th>Foto Sokmul</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -40,8 +40,12 @@
                                     <td>{{ $s->catatan }}</td>
                                     <td><img src="{{ url('/images/sokmul/'.$s->gambar) }}" width="250px" height="150px" alt="logo"></td>
                                     <td>
+                                    @if($s->status == '0')
                                     <a href="/campaign/tambah/{{ $s->id }}"><button class="btn btn-default"><span class="fa fa-file"></span> Buat Campaign</button>
                                     {{-- <a href="/campaign/ambil/{{ $s->id }}"><button class="btn btn-default"><span class="fa fa-copy"></span> Campaign</button> --}}
+                                    @else
+                                    SUDAH DIBUAT
+                                    @endif
                                     </td>
                                 </tr>
                             @endforeach

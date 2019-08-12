@@ -459,7 +459,7 @@ textarea.input {
 
 #home {
   position: relative;
-  height: 100vh;
+  height: 10vh;
 }
 
 #home #home-owl {
@@ -557,7 +557,7 @@ textarea.input {
 ===========================================================*/
 
 #about.section {
-  padding-bottom: 0px;
+  padding-bottom: 50px;
 }
 
 #about:after {

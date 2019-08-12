@@ -9,7 +9,7 @@
 
     <title>@yield('title')</title>
 
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('asset') }}/img/logoknb.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('asset') }}/img/iconknb.ico">
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400%7CSource+Sans+Pro:700" rel="stylesheet">
 
@@ -48,12 +48,12 @@
             <!-- row -->
             <div class="row">
                 <!-- footer contact -->
-                <div class="col-md-4">
+                <div class="col-md-12" align="center">
                     <div class="footer">
                         <div class="footer-logo">
-                            <a class="logo" href="#"><img src="{{ asset('asset') }}/img/logoknb.png" alt=""></a>
+                            <a class="" href="#"><img src="{{ asset('asset') }}/img/logoknb.png" alt="" height="200px" width="200px"></a>
                         </div>
-                        <p>Ketimbang Ngemis Bandung adalah Komunitas Sosial yang membantu para sosok mulia yang menawarkan barang atau jasa dengan menjauhi perbuatan mengemis</p>
+                        <strong><p style="font-size: 24px">#SayNoToNgemis</p></strong>
                         <ul class="footer-contact">
                             <li><i class="fa fa-map-marker"></i> Bandung</li>
                             <li><i class="fa fa-money"></i> BRI 4288-01-011129-53-4 A.n Lulu Haqiqi</li>
@@ -64,7 +64,7 @@
                 <!-- /footer contact -->
 
                 <!-- footer galery -->
-                <div class="col-md-4">
+               {{--  <div class="col-md-4">
                     <div class="footer">
                         <h3 class="footer-title">Galery</h3>
                         <ul class="footer-galery">
@@ -76,11 +76,11 @@
                             <li><a href="#"><img src="./img/galery-6.jpg" alt=""></a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
                 <!-- /footer galery -->
 
                 <!-- footer newsletter -->
-                <div class="col-md-4">
+                {{-- <div class="col-md-6">
                     <div class="footer">
                         <h3 class="footer-title">JOIN US</h3>
                         <p>Kirim Email kamu untuk mendapatkan informasi seputar Recruitment KNB</p>
@@ -96,32 +96,21 @@
                             <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
                 <!-- /footer newsletter -->
             </div>
             <!-- /row -->
 
             <!-- footer copyright & nav -->
-          {{--   <div id="footer-bottom" class="row">
-                <div class="col-md-6 col-md-push-6">
-                    <ul class="footer-nav">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Causes</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-6 col-md-pull-6">
+            <div id="footer-bottom" class="row">
+                <div class="col-md-12" align="center">
                     <div class="footer-copyright">
                         <span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
+                            &copy;<script>document.write(new Date().getFullYear());</script> Ketimbang Ngemis Bandung
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
+                        </div>
                     </div>
                 </div>
-            </div> --}}
             <!-- /footer copyright & nav -->
         </div>
         <!-- /container -->

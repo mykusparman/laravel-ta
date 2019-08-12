@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Campaign;
+use App\Laporan;
+use App\Sokmul;
 use App\Model\Donation;
+use DB;
+use Carbon;
 
 class DonaturController extends Controller
 {
@@ -16,8 +20,30 @@ class DonaturController extends Controller
      */
     public function index()
     {
-        $campaign=Campaign::inRandomOrder()->take(6)->get();
-        return view('user.index',compact('campaign'));
+        // $campaign=Campaign::inRandomOrder()->take(6)->where('status','open')->get();
+        $mytime = Carbon\Carbon::now();
+        $date_now=$mytime->format('Y-m-d');
+
+        $campaign=Campaign::join('sokmul','sokmul.id','campaign.id_sokmul')
+                            ->select('*','campaign.gambar AS gambarnya','campaign.goal AS goalnya',                     
+                                DB::raw("(SELECT SUM(donation.amount) FROM donation
+                                WHERE donation.id_campaign = campaign.id
+                                GROUP BY donation.id_campaign) as total_amount")
+                            )
+                            ->inRandomOrder()
+                            ->take(6)
+                            ->where('campaign.status','open')
+                            ->where('expired','>',$date_now)
+                            ->get();
+
+        $laporan=Laporan::join('campaign','campaign.id','laporan.id_campaign')
+                            ->join('sokmul','sokmul.id','campaign.id_sokmul')
+                            ->select('*','sokmul.nama AS namanya')
+                            ->take(4)
+                            ->orderBy("laporan.id", "DESC")
+                            ->get();
+
+        return view('user.index',compact('campaign','laporan'));
     }
 
     public function dashboard()
