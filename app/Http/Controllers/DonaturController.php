@@ -25,7 +25,7 @@ class DonaturController extends Controller
         $date_now=$mytime->format('Y-m-d');
 
         $campaign=Campaign::join('sokmul','sokmul.id','campaign.id_sokmul')
-                            ->select('*','campaign.gambar AS gambarnya','campaign.goal AS goalnya',                     
+                            ->select('*','campaign.id as idnya','campaign.gambar AS gambarnya','campaign.goal AS goalnya',                     
                                 DB::raw("(SELECT SUM(donation.amount) FROM donation
                                 WHERE donation.id_campaign = campaign.id
                                 GROUP BY donation.id_campaign) as total_amount")

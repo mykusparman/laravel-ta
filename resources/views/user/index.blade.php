@@ -164,7 +164,7 @@
 				<div class="col-md-4">
 					<div class="causes">
 						<div class="causes-img">
-							<a href="campaign/detail/{{ $c->id }}">
+							<a href="{{ url('/campaign/detail/'.$c->idnya) }}">
 									<img src="{{ url('/images/campaign/'.$c->gambarnya) }}" alt="">
 								</a>
 						</div>
