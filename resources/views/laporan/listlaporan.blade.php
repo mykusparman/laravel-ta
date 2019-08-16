@@ -22,18 +22,19 @@
                                     <th>Action</th>
                                 </tr>
                             </thead>
+                            @foreach($laporan as $l)
                             <tbody>
                             @php
                             $no=1;
                             @endphp
-                            @foreach($laporan as $l)
                             <td>{{ $no++ }}</td>
                             <td>{{ $l->title }}</td>
                             <td>{{ $l->description }}</td>
                             <td>{{ $l->date}}</td>
-                            <td>{{ $l->gambar }}</td>
-                            @endforeach
+                            <td><img src="{{ url('/images/laporan/'.$l->gambar) }}" width="250px" height="250px" alt="logo"></td>
+                            <td></td>
                             </tbody>
+                            @endforeach
                         </table>
                     </div>
                 </div>

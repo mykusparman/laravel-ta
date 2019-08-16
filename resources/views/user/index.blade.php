@@ -182,8 +182,8 @@
 								</div>
 							</div>
 							<div>
-								<span class="causes-raised">Raised: <strong>Rp. {{ number_format($c->total_amount)}}</strong></span>
-								<span class="causes-goal">Goal: <strong>Rp. {{ number_format($c->goal)}}</strong></span>
+								<span class="causes-raised">Terkumpul: <strong>Rp. {{ number_format($c->total_amount)}}</strong></span>
+								<span class="causes-goal">Target: <strong>Rp. {{ number_format($c->goal)}}</strong></span>
 							</div>
 							<div>
 								<span class="causes-raised">Waktu Donasi {{ $days }} Hari Lagi</span>
@@ -373,53 +373,8 @@
 	</div> --}}
 	<!-- /CTA -->
 
-	<!-- EVENTS -->
-	<div id="events" class="section">
-		<!-- container -->
-		<div class="container">
-			<!-- row -->
-			<div class="row">
-				<!-- section title -->
-				<div class="col-md-8 col-md-offset-2">
-					<div class="section-title text-center">
-						<h2 class="title">Distribution of Donations</h2>
-						<p class="sub-title">Penyaluran Kepada Sosok Mulia</p>
-					</div>
-				</div>
-				<!-- /section title -->
-
-				<!-- event -->
-				@foreach($laporan as $l)
-				<div class="col-md-6">
-					<div class="event">
-						<div class="event-img">
-							<a href="#">
-								<img src="{{ url('/images/laporan/'.$l->gambar) }}" alt="">
-							</a>
-						</div>
-						<div class="event-content">
-							<h3><a href="">{{ $l->title }}</a></h3>
-							<ul class="event-meta">
-								<li><i class="fa fa-clock-o"></i>{{ $l->date }}</li>
-								<li><i class="fa fa-clock-o"></i>{{ $l->nama }}</li>
-								<li><i class="fa fa-clock-o"></i>{{ $l->pekerjaan }}</li>
-								{{-- <li><i class="fa fa-map-marker"></i> 2736 Hinkle Deegan Lake Road</li> --}}
-							</ul>
-							{{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> --}}
-						</div>
-					</div>
-				</div>
-				@endforeach
-				<!-- /event -->
-			</div>
-			<!-- /row -->
-		</div>
-		<!-- /container -->
-	</div>
-	<!-- /EVENTS -->
-
 	<!-- TESTIMONIAL -->
-	<div id="testimonial" class="section">
+	{{-- <div id="testimonial" class="section">
 		<!-- background section -->
 		<div class="section-bg" style="background-image: url(./img/background-2.jpg);" data-stellar-background-ratio="0.5"></div>
 		<!-- /background section -->
@@ -505,7 +460,7 @@
 			<!-- /Row -->
 		</div>
 		<!-- /container -->
-	</div>
+	</div> --}}
 	<!-- /TESTIMONIAL -->
 
 	<!-- BLOG -->
@@ -517,31 +472,33 @@
 				<!-- section title -->
 				<div class="col-md-8 col-md-offset-2">
 					<div class="section-title text-center">
-						<h2 class="title">Our Blog</h2>
-						<p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<h2 class="title">Distribution of Donations</h2>
+						<p class="sub-title">Penyaluran Kepada Sosok Mulia</p>
 					</div>
 				</div>
 				<!-- /section title -->
 
 				<!-- blog -->
+				@foreach($laporan as $l)
 				<div class="col-md-4">
 					<div class="article">
 						<div class="article-img">
 							<a href="single-blog.html">
-								<img src="./img/post-1.jpg" alt="">
+								<img src="{{ url('/images/laporan/'.$l->gambarnya) }}" alt="">
 							</a>
 						</div>
 						<div class="article-content">
-							<h3 class="article-title"><a href="single-blog.html">Possit nostro aeterno eu vis, ut cum quem reque</a></h3>
+							<h3 class="article-title"><a href="{{ url('laporan/detail/'.$l->idnya) }}">{{ $l->title }}</a></h3>
 							<ul class="article-meta">
-								<li>12 November 2018</li>
-								<li>By John doe</li>
-								<li>0 Comments</li>
+								<li>{{ $l->date }}</li>
+								<li>{{ $l->namanya }}</li>
+								<li>{{ $l->pekerjaan }}</li>
 							</ul>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 						</div>
 					</div>
 				</div>
+				@endforeach
 				<!-- /blog -->
 
 				<!-- blog -->

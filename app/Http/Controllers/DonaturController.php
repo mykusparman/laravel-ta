@@ -38,10 +38,11 @@ class DonaturController extends Controller
 
         $laporan=Laporan::join('campaign','campaign.id','laporan.id_campaign')
                             ->join('sokmul','sokmul.id','campaign.id_sokmul')
-                            ->select('*','sokmul.nama AS namanya')
+                            ->select('*','sokmul.nama AS namanya','laporan.gambar AS gambarnya','laporan.id AS idnya')
                             ->take(4)
                             ->orderBy("laporan.id", "DESC")
                             ->get();
+        // $laporan=Laporan::all();
 
         return view('user.index',compact('campaign','laporan'));
     }

@@ -8,18 +8,18 @@
             <div class="page-content fade-in-up">
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title">Data Sokmul</div>
+                        <div class="ibox-title">Data Donasi Kamu</div>
                     </div>
                     <div class="ibox-body">
                         <table id="example-table" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Donor Name</th>
-                                    <th>Donor Email</th>
+                                    <th>Nama Donatur</th>
+                                    <th>Email</th>
                                     <th>Jumlah</th>
                                     <th>Note</th>
-                                    <th>Status</th>                                   
+                                    <th>Status Transaksi</th>                                   
                                 </tr>
                             </thead>
                             <tbody>

@@ -27,7 +27,7 @@ class LaporanController extends Controller
     public function create($id)
     {
         $campaign=Campaign::join('sokmul','sokmul.id','campaign.id_sokmul')
-                            ->select('*','campaign.gambar AS gambarnya','campaign.goal AS goalnya','sokmul.nama AS namanya','sokmul.usia AS usianya','sokmul.pekerjaan AS pekerjaannya')
+                            ->select('*','campaign.id AS idnya','campaign.gambar AS gambarnya','campaign.goal AS goalnya','sokmul.nama AS namanya','sokmul.usia AS usianya','sokmul.pekerjaan AS pekerjaannya')
                             ->where('campaign.id',$id)
                             ->first();
         return view('laporan/inputlaporan',compact('id','campaign'));

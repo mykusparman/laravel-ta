@@ -61,10 +61,11 @@ class CampaignController extends Controller
         $foto->move(public_path('images/campaign/'),$nama);
 
         $validator=Validator::make($request->all(),[
-            'title'=>'required',
+            'title'=>'required|max:50',
             'date'=>'date',
             'expired'=>'date|after:date',
-            'description'=>'required'
+            'description'=>'required',
+            'gambar'=>'required'
         ]);
 
         if($validator->fails()) {

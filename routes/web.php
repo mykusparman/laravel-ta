@@ -18,10 +18,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('member/{nama}','Member@coba');
-Route::get('formulir','Member@formulir');
-Route::post('formulir/proses','Member@proses');
-
 // Route Admin
 Route::get('admin/','AdminController@index')->middleware(['auth']);
 

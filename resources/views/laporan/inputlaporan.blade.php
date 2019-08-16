@@ -14,7 +14,8 @@
                             <div class="ibox-body">
                                 <form class="form-horizontal" method="post" action="/laporan/simpan" enctype="multipart/form-data">
                                     {{ csrf_field() }}
-                                    <input type="hidden" name="id_campaign" value="{{ $campaign->id }}">
+                                    <input type="text" name="id_campaign" value="{{ $campaign->idnya }}">
+                                    {{-- <input type="text" name="id_campaign" value="{{ $campaign->id }}"> --}}
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Nama Sosok Mulia</label>
                                         <div class="col-sm-10">
