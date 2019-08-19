@@ -74,6 +74,27 @@ class LaporanController extends Controller
 
     }
 
+    public function galerilaporan()
+    {
+        $laporan=Laporan::join('campaign','campaign.id','laporan.id_campaign')
+                            ->join('sokmul','sokmul.id','campaign.id_sokmul')
+                            ->select('*','sokmul.nama AS namanya','laporan.gambar AS gambarnya','laporan.id AS idnya','laporan.title AS title_laporan','laporan.description AS description_laporan')
+                            ->orderBy("laporan.id", "DESC")
+                            ->paginate(9);
+        return view('laporan/galerilaporan',compact('laporan'));
+    }
+
+    public function detail($id)
+    {
+        $laporan=Laporan::join('campaign','campaign.id','laporan.id_campaign')
+                            ->join('sokmul','sokmul.id','campaign.id_sokmul')
+                            ->select('*','sokmul.nama AS namanya','laporan.gambar AS gambarnya','laporan.id AS idnya','laporan.title AS title_laporan','laporan.description AS description_laporan')
+                            ->orderBy("laporan.id", "DESC")
+                            ->first();
+        // dd($laporan);
+        return view('/laporan/detaillaporan',compact('laporan'));
+    }
+
     /**
      * Display the specified resource.
      *

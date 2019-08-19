@@ -66,6 +66,8 @@ Route::get('/notification/handler','DonationController@notificationHandler');
 Route::get('/donate/finish','DonationController@finish');
 Route::get('/donatur/dashboard','DonaturController@dashboard');
 Route::get('/donatur/list','DonaturController@listdonation');
+Route::get('/donatur/galerilaporan','LaporanController@galerilaporan');
+Route::get('/laporan/detaillaporan/{id}','LaporanController@detail');
 
 
 // Route::get('/home', 'HomeController@index')->name('home');

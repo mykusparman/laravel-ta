@@ -44,7 +44,7 @@
 					</li>
 					<li class="has-dropdown"><a href="#">Events</a>
 						<ul class="dropdown">
-							<li><a href="#">Distribution of Donations</a></li>
+							<li><a href="{{ url('/donatur/galerilaporan') }}">Distribution of Donations</a></li>
 						</ul>
 					</li>
 				{{-- 	<li class="has-dropdown"><a href="#">Blog</a>

@@ -488,13 +488,13 @@
 							</a>
 						</div>
 						<div class="article-content">
-							<h3 class="article-title"><a href="{{ url('laporan/detail/'.$l->idnya) }}">{{ $l->title }}</a></h3>
+							<h3 class="article-title"><a href="{{ url('laporan/detaillaporan/'.$l->idnya) }}">{{ $l->title_laporan }}</a></h3>
 							<ul class="article-meta">
 								<li>{{ $l->date }}</li>
 								<li>{{ $l->namanya }}</li>
 								<li>{{ $l->pekerjaan }}</li>
 							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							<p>{!! substr($l->description_laporan,0,100) !!} ...</p>
 						</div>
 					</div>
 				</div>
