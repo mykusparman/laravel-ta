@@ -67,9 +67,6 @@
                                         <label class="col-sm-2 col-form-label">Gambar</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" name="gambar" type="file">
-                                            @if ($errors->has('gambar'))
-                                            <div class="error">{{ $errors->first('gambar') }}</div>
-                                            @endif
                                         </div>
                                     </div>
                                     <div class="form-group row">

@@ -24,7 +24,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Usia</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" name="usia" type="text" value="{{ $sokmul->usia }}">
+                                            <input class="form-control" name="usia" type="number" value="{{ $sokmul->usia }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -39,8 +39,20 @@
                                             <input class="form-control" name="pekerjaan" type="text" value="{{ $sokmul->pekerjaan }}">
                                         </div>
                                     </div>
+                                     <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Goal</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="goal" type="number" value="{{ $sokmul->goal }}">
+                                        </div>
+                                    </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Gambar</label>
+                                        <label class="col-sm-2 col-form-label">Catatan Syarat Kelayakan</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="catatan" type="text" value="{{ $sokmul->catatan }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Foto Sokmul</label>
                                         <div class="col-sm-10">
                                             <img src="{{ url('/images/sokmul/'.$sokmul->gambar) }}"><input class="form-control" name="gambar" type="file">
                                         </div>

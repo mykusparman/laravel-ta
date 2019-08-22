@@ -46,7 +46,7 @@ class LaporanController extends Controller
         $foto->move(public_path('images/laporan/'),$nama);
 
         $validator=Validator::make($request->all(),[
-            'title'=>'required',
+            'title'=>'required|max:60',
             'date'=>'date',
             'description'=>'required'
         ]);
@@ -112,9 +112,10 @@ class LaporanController extends Controller
      * @param  \App\Laporan  $laporan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Laporan $laporan)
+    public function edit(Laporan $laporan,$id)
     {
-        //
+        $laporan=Laporan::find($id);
+        return view('laporan/updatelaporan',compact('laporan'));
     }
 
     /**
@@ -124,9 +125,32 @@ class LaporanController extends Controller
      * @param  \App\Laporan  $laporan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Laporan $laporan)
+    public function update(Request $request, Laporan $laporan,$id)
     {
-        //
+        $foto = $request->file('gambar');
+        $nama = rand(). '.' . $foto->getClientOriginalExtension();
+        $foto->move(public_path('images/laporan/'),$nama);
+
+        $validator=Validator::make($request->all(),[
+            'title'=>'required|max:60',
+            'description'=>'required'
+        ]);
+
+        if($validator->fails()) {
+            return Redirect::back()->withErrors($validator);
+        }
+
+        $data=[
+            'title'=>$request->title,
+            'description'=>$request->description,
+            'gambar'=>$nama
+        ];
+
+        $laporan=Laporan::find($id);
+        $laporan->update(
+            $data
+        );
+        return redirect('laporan/tampil');
     }
 
     /**
@@ -135,8 +159,10 @@ class LaporanController extends Controller
      * @param  \App\Laporan  $laporan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Laporan $laporan)
+    public function destroy(Laporan $laporan, $id)
     {
-        //
+        $laporan=Laporan::find($id);
+        $laporan->delete();
+        return back();
     }
 }

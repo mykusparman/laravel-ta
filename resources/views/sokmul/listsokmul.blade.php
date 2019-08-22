@@ -10,7 +10,7 @@
                     <div class="ibox-head">
                         <div class="ibox-title">Data Sokmul</div>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                          Input Sokmul
+                          + Input Sokmul
                       </button>
                     </div>
                     <div class="ibox-body">
@@ -76,7 +76,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Usia</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" name="usia" type="text" placeholder="Usia Sokmul">
+                                            <input class="form-control" name="usia" type="number" placeholder="Usia Sokmul">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -104,14 +104,14 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Gambar</label>
+                                        <label class="col-sm-2 col-form-label">Foto Sokmul</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" name="gambar" type="file">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-10 ml-sm-auto">
-                                            <button class="btn btn-info" na type="submit">Submit</button>
+                                            <button class="btn btn-info" type="submit">Submit</button>
                                         </div>
                                     </div>
                         </form>

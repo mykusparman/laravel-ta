@@ -36,10 +36,10 @@
 				<!-- Nav menu -->
 				<ul class="navbar-menu nav navbar-nav navbar-right">
 					<li><a href="/">Home</a></li>
-					<li><a href="#">About</a></li>
+					<li><a href="#about">About</a></li>
 					<li class="has-dropdown"><a href="#">Campaign</a>
 						<ul class="dropdown">
-							<li><a href="#">Sosok Mulia Campaign</a></li>
+							<li><a href="#campaign">Open Donation</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown"><a href="#">Events</a>

@@ -34,17 +34,23 @@
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                                @if ($errors->has('email'))
+                                <div class="error">{{ $errors->first('email') }}</div>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label for="password"><i class="zmdi zmdi-lock"></i></label>
                                 <input id="password" type="password" class="form-control" name="password" required>
+                                @if ($errors->has('password'))
+                                <div class="error">{{ $errors->first('password') }}</div>
+                                @endif
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
                                 <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
-                            </div>
+                            </div> --}}
                             <div class="form-group form-button">
-                                <input type="submit" id="signin" class="form-submit" value="Login"/>
+                                <input type="submit" id="signin" class="form-submit" value="Login">
                             </div>
                         </form>
                         {{-- <div class="social-login">

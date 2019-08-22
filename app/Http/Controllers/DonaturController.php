@@ -30,10 +30,11 @@ class DonaturController extends Controller
                                 WHERE donation.id_campaign = campaign.id
                                 GROUP BY donation.id_campaign) as total_amount")
                             )
-                            ->inRandomOrder()
-                            ->take(6)
+                            // ->inRandomOrder()
+                            ->take(3)
                             ->where('campaign.status','open')
                             ->where('expired','>',$date_now)
+                            ->orderBy("campaign.id", "DESC")
                             ->get();
 
         $laporan=Laporan::join('campaign','campaign.id','laporan.id_campaign')
@@ -44,7 +45,12 @@ class DonaturController extends Controller
                             ->get();
         // $laporan=Laporan::all();
 
-        return view('user.index',compact('campaign','laporan'));
+        $c_total=Campaign::all();
+        $d_total=Donation::where('status','success')
+                            ->sum('amount');
+                            
+
+        return view('user.index',compact('campaign','laporan','c_total','d_total'));
     }
 
     public function dashboard()

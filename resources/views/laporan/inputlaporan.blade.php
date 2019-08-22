@@ -5,7 +5,7 @@
                 <div class="col-md-12">
                         <div class="ibox">
                             <div class="ibox-head">
-                                <div class="ibox-title">Input Laporan Form Form</div>
+                                <div class="ibox-title">Input Laporan Form</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                                     <a class="fullscreen-link"><i class="fa fa-expand"></i></a>
@@ -14,7 +14,7 @@
                             <div class="ibox-body">
                                 <form class="form-horizontal" method="post" action="/laporan/simpan" enctype="multipart/form-data">
                                     {{ csrf_field() }}
-                                    <input type="text" name="id_campaign" value="{{ $campaign->idnya }}">
+                                    <input type="hidden" name="id_campaign" value="{{ $campaign->idnya }}">
                                     {{-- <input type="text" name="id_campaign" value="{{ $campaign->id }}"> --}}
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Nama Sosok Mulia</label>

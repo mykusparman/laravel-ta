@@ -29,10 +29,13 @@
                             @endphp
                             <td>{{ $no++ }}</td>
                             <td>{{ $l->title }}</td>
-                            <td>{{ $l->description }}</td>
+                            <td>{!! $l->description !!}</td>
                             <td>{{ $l->date}}</td>
                             <td><img src="{{ url('/images/laporan/'.$l->gambar) }}" width="250px" height="250px" alt="logo"></td>
-                            <td></td>
+                            <td>
+                                <a href="{{ url('laporan/editlaporan',$l->id) }}"><button class="btn btn-default"><span class="fa fa-pencil"></span></button>
+                                <a href="{{ url('laporan/hapuslaporan',$l->id) }}"><button class="btn btn-default"><span class="fa fa-trash"></span></button>
+                            </td>
                             </tbody>
                             @endforeach
                         </table>

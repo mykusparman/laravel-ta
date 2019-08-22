@@ -98,41 +98,21 @@
 			<!-- row -->
 			<div class="row">
 				<!-- number -->
-				<div class="col-md-3 col-sm-6">
-					<div class="number">
-						<i class="fa fa-smile-o"></i>
-						<h3>47k</h3>
-						<span>Donors</span>
-					</div>
-				</div>
-				<!-- /number -->
-
-				<!-- number -->
-				<div class="col-md-3 col-sm-6">
+				<div class="col-md-6 col-sm-6">
 					<div class="number">
 						<i class="fa fa-heartbeat"></i>
-						<h3>154K</h3>
-						<span>Children Saved</span>
+						<h3>{{ count($c_total) }}</h3>
+						<span>Total Campaign</span>
 					</div>
 				</div>
 				<!-- /number -->
 
 				<!-- number -->
-				<div class="col-md-3 col-sm-6">
+				<div class="col-md-6 col-sm-6">
 					<div class="number">
 						<i class="fa fa-money"></i>
-						<h3>785K</h3>
-						<span>Donated</span>
-					</div>
-				</div>
-				<!-- /number -->
-
-				<!-- number -->
-				<div class="col-md-3 col-sm-6">
-					<div class="number">
-						<i class="fa fa-handshake-o"></i>
-						<h3>357</h3>
-						<span>Volunteers</span>
+						<h3>Rp. {{ number_format($d_total) }}</h3>
+						<span>Total Donated</span>
 					</div>
 				</div>
 				<!-- /number -->
@@ -144,7 +124,7 @@
 	<!-- /NUMBERS -->
 
 	<!-- CAUSESS -->
-	<div id="causes" class="section">
+	<div id="campaign" class="section">
 		<!-- container -->
 		<div class="container">
 			<!-- row -->
@@ -199,147 +179,8 @@
 				@endforeach
 				<!-- /causes -->
 
-				{{-- <!-- causes -->
-				<div class="col-md-4">
-					<div class="causes">
-						<div class="causes-img">
-							<a href="single-cause.html">
-									<img src="./img/post-2.jpg" alt="">
-								</a>
-						</div>
-						<div class="causes-progress">
-							<div class="causes-progress-bar">
-								<div style="width: 53%;">
-									<span>53%</span>
-								</div>
-							</div>
-							<div>
-								<span class="causes-raised">Raised: <strong>52.000$</strong></span>
-								<span class="causes-goal">Goal: <strong>90.000$</strong></span>
-							</div>
-						</div>
-						<div class="causes-content">
-							<h3><a href="single-cause.html">Vix fuisset tibique facilisis cu. Justo accusata ius at</a></h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							<a href="single-cause.html" class="primary-button causes-donate">Donate Now</a>
-						</div>
-					</div>
-				</div>
-				<!-- /causes -->
+				{{-- <div class="clearfix visible-md visible-lg"></div> --}}
 
-				<!-- causes -->
-				<div class="col-md-4">
-					<div class="causes">
-						<div class="causes-img">
-							<a href="single-cause.html">
-								<img src="./img/post-3.jpg" alt="">
-							</a>
-						</div>
-						<div class="causes-progress">
-							<div class="causes-progress-bar">
-								<div style="width: 72%;">
-									<span>72%</span>
-								</div>
-							</div>
-							<div>
-								<span class="causes-raised">Raised: <strong>52.000$</strong></span>
-								<span class="causes-goal">Goal: <strong>90.000$</strong></span>
-							</div>
-						</div>
-						<div class="causes-content">
-							<h3><a href="single-cause.html">Possit nostro aeterno eu vis, ut cum quem reque</a></h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							<a href="single-cause.html" class="primary-button causes-donate">Donate Now</a>
-						</div>
-					</div>
-				</div>
-				<!-- /causes -->
-
-				<div class="clearfix visible-md visible-lg"></div>
-
-				<!-- causes -->
-				<div class="col-md-4">
-					<div class="causes">
-						<div class="causes-img">
-							<a href="single-cause.html">
-								<img src="./img/post-4.jpg" alt="">
-							</a>
-						</div>
-						<div class="causes-progress">
-							<div class="causes-progress-bar">
-								<div style="width: 64%;">
-									<span>64%</span>
-								</div>
-							</div>
-							<div>
-								<span class="causes-raised">Raised: <strong>52.000$</strong></span>
-								<span class="causes-goal">Goal: <strong>90.000$</strong></span>
-							</div>
-						</div>
-						<div class="causes-content">
-							<h3><a href="single-cause.html">Possit nostro aeterno eu vis, ut cum quem reque</a></h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							<a href="single-cause.html" class="primary-button causes-donate">Donate Now</a>
-						</div>
-					</div>
-				</div>
-				<!-- /causes -->
-
-				<!-- causes -->
-				<div class="col-md-4">
-					<div class="causes">
-						<div class="causes-img">
-							<a href="single-cause.html">
-								<img src="./img/post-5.jpg" alt="">
-							</a>
-						</div>
-						<div class="causes-progress">
-							<div class="causes-progress-bar">
-								<div style="width: 72%;">
-									<span>72%</span>
-								</div>
-							</div>
-							<div>
-								<span class="causes-raised">Raised: <strong>52.000$</strong></span>
-								<span class="causes-goal">Goal: <strong>90.000$</strong></span>
-							</div>
-						</div>
-						<div class="causes-content">
-							<h3><a href="single-cause.html">Vix fuisset tibique facilisis cu. Justo accusata ius at</a></h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							<a href="single-cause.html" class="primary-button causes-donate">Donate Now</a>
-						</div>
-					</div>
-				</div>
-				<!-- /causes -->
-
-				<!-- causes -->
-				<div class="col-md-4">
-					<div class="causes">
-						<div class="causes-img">
-							<a href="single-cause.html">
-								<img src="./img/post-6.jpg" alt="">
-							</a>
-						</div>
-						<div class="causes-progress">
-							<div class="causes-progress-bar">
-								<div style="width: 53%;">
-									<span>53%</span>
-								</div>
-							</div>
-							<div>
-								<span class="causes-raised">Raised: <strong>52.000$</strong></span>
-								<span class="causes-goal">Goal: <strong>90.000$</strong></span>
-							</div>
-						</div>
-						<div class="causes-content">
-							<h3><a href="single-cause.html">Possit nostro aeterno eu vis, ut cum quem reque</a></h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							<a href="single-cause.html" class="primary-button causes-donate">Donate Now</a>
-						</div>
-					</div>
-				</div>
-				<!-- /causes --> --}}
 			</div>
 			<!-- /row -->
 		</div>
@@ -483,7 +324,7 @@
 				<div class="col-md-4">
 					<div class="article">
 						<div class="article-img">
-							<a href="single-blog.html">
+							<a href="{{ url('laporan/detaillaporan/'.$l->idnya) }}">
 								<img src="{{ url('/images/laporan/'.$l->gambarnya) }}" alt="">
 							</a>
 						</div>
@@ -499,48 +340,6 @@
 					</div>
 				</div>
 				@endforeach
-				<!-- /blog -->
-
-				<!-- blog -->
-				<div class="col-md-4">
-					<div class="article">
-						<div class="article-img">
-							<a href="single-blog.html">
-								<img src="./img/post-2.jpg" alt="">
-							</a>
-						</div>
-						<div class="article-content">
-							<h3 class="article-title"><a href="single-blog.html">Vix fuisset tibique facilisis cu. Justo accusata ius at</a></h3>
-							<ul class="article-meta">
-								<li>12 November 2018</li>
-								<li>By John doe</li>
-								<li>0 Comments</li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						</div>
-					</div>
-				</div>
-				<!-- /blog -->
-
-				<!-- blog -->
-				<div class="col-md-4">
-					<div class="article">
-						<div class="article-img">
-							<a href="single-blog.html">
-								<img src="./img/post-3.jpg" alt="">
-							</a>
-						</div>
-						<div class="article-content">
-							<h3 class="article-title"><a href="single-blog.html">Possit nostro aeterno eu vis, ut cum quem reque</a></h3>
-							<ul class="article-meta">
-								<li>12 November 2018</li>
-								<li>By John doe</li>
-								<li>0 Comments</li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						</div>
-					</div>
-				</div>
 				<!-- /blog -->
 			</div>
 			<!-- /row -->

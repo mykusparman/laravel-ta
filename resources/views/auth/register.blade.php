@@ -27,23 +27,32 @@
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="name"  placeholder="Your Name"/>
+                                @if ($errors->has('name'))
+                                <div class="error">{{ $errors->first('name') }}</div>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
                                 <input type="email" name="email"  placeholder="Your Email"/>
+                                @if ($errors->has('email'))
+                                <div class="error">{{ $errors->first('email') }}</div>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="password"  placeholder="Password"/>
+                                <input type="password" name="password"  placeholder="Password"/>\
+                                @if ($errors->has('password'))
+                                <div class="error">{{ $errors->first('password') }}</div>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
                                 <input type="password" name="password_confirmation" id="re_pass" placeholder="Repeat your password"/>
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                            </div>
+                            </div> --}}
                             <div class="form-group form-button">
                                 <input type="submit" class="form-submit" value="Register"/>
                             </div>

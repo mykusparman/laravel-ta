@@ -15,8 +15,9 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Donatur</th>
+                                    <th>Nama Penyumbang</th>
                                     <th>Email</th>
+                                    <th>Tanggal</th>
                                     <th>Jumlah</th>
                                     <th>Note</th>
                                     <th>Status Transaksi</th>                                   
@@ -31,6 +32,7 @@
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $d->donor_name }}</td>
                                     <td>{{ $d->donor_email }}</td>
+                                    <td>{{ $d->created_at }}</td>
                                     <td>Rp. {{ number_format($d->amount) }}</td>
                                     <td>{{ $d->note }}</td>
                                     <td>{{ $d->status }}</td>

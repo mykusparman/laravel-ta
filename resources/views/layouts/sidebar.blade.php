@@ -14,14 +14,6 @@
                     <li>
                         <a class="nav-link sidebar-toggler js-sidebar-toggler"><i class="ti-menu"></i></a>
                     </li>
-                    <li>
-                        <form class="navbar-search" action="javascript:;">
-                            <div class="rel">
-                                <span class="search-icon"><i class="ti-search"></i></span>
-                                <input class="form-control" placeholder="Search here...">
-                            </div>
-                        </form>
-                    </li>
                 </ul>
                 <!-- END TOP-LEFT TOOLBAR-->
                 <!-- START TOP-RIGHT TOOLBAR-->
@@ -31,10 +23,10 @@
                             {{-- <img src="./assets/img/admin-avatar.png" /> --}}
                             <span></span>{{ Auth::user()->name }}<i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i>Profile</a>
+                            {{-- <a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i>Profile</a>
                             <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a>
                             <a class="dropdown-item" href="javascript:;"><i class="fa fa-support"></i>Support</a>
-                            <li class="dropdown-divider"></li>
+                            <li class="dropdown-divider"></li> --}}
                             <a class="dropdown-item" href="{{ route('logout') }}" 
                             onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
                             Logout</a>
@@ -57,7 +49,7 @@
                         <img src="./assets/img/admin-avatar.png" width="45px" />
                     </div> --}}
                     <div class="admin-info">
-                        <div class="font-strong">{{ Auth::user()->name }}</div><small>Administrator</small></div>
+                        <div class="font-strong">{{ Auth::user()->name }}</div><small></small></div>
                 </div>
                 <ul class="side-menu metismenu">
                     <li>
@@ -79,18 +71,6 @@
                     {{-- SIDEBAR ADMIN --}}
                     @if (Auth::user()->role == 'admin')
                     <li class="heading">FEATURES</li>
-                    <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
-                            <span class="nav-label">Basic UI</span><i class="fa fa-angle-left arrow"></i></a>
-                        <ul class="nav-2-level collapse">
-                            <li>
-                                <a href="colors.html">Colors</a>
-                            </li>
-                            <li>
-                                <a href="typography.html">Typography</a>
-                            </li>
-                        </ul>
-                    </li>
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-user"></i>
                             <span class="nav-label">Users</span><i class="fa fa-angle-left arrow"></i></a>
@@ -131,9 +111,6 @@
                         <ul class="nav-2-level collapse">
                             <li>
                                 <a href="/laporan/tampil">List</a>
-                            </li>
-                            <li>
-                                <a href="/laporan/tambah">Input</a>
                             </li>
                         </ul>
                     </li>
@@ -179,15 +156,7 @@
                             <li>
                                 <a href="/donatur/list">List</a>
                             </li>
-                            <li>
-                                <a href="#">Input</a>
-                            </li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="icons.html"><i class="sidebar-item-icon fa fa-smile-o"></i>
-                            <span class="nav-label">Icons</span>
-                        </a>
                     </li>
                     @endif
                     {{-- END SIDEBAR DONATUR --}}

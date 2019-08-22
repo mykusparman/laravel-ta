@@ -64,8 +64,7 @@ class CampaignController extends Controller
             'title'=>'required|max:50',
             'date'=>'date',
             'expired'=>'date|after:date',
-            'description'=>'required',
-            'gambar'=>'required'
+            'description'=>'required'
         ]);
 
         if($validator->fails()) {

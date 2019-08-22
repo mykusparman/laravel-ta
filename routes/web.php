@@ -68,6 +68,9 @@ Route::get('/donatur/dashboard','DonaturController@dashboard');
 Route::get('/donatur/list','DonaturController@listdonation');
 Route::get('/donatur/galerilaporan','LaporanController@galerilaporan');
 Route::get('/laporan/detaillaporan/{id}','LaporanController@detail');
+Route::get('/laporan/editlaporan/{id}','LaporanController@edit');
+Route::put('/laporan/updatelaporan/{id}','LaporanController@update');
+Route::get('/laporan/hapuslaporan/{id}','LaporanController@destroy');
 
 
 // Route::get('/home', 'HomeController@index')->name('home');

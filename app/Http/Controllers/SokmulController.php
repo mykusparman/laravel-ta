@@ -108,6 +108,8 @@ class SokmulController extends Controller
             'usia'=>$request->usia,
             'alamat'=>$request->alamat,
             'pekerjaan'=>$request->pekerjaan,
+            'goal'=>$request->goal,
+            'catatan'=>$request->catatan,
             'gambar'=>$nama
         ];
         

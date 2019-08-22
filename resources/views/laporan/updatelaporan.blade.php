@@ -5,42 +5,36 @@
                 <div class="col-md-12">
                         <div class="ibox">
                             <div class="ibox-head">
-                                <div class="ibox-title">Edit user Form</div>
+                                <div class="ibox-title">Edit Laporan Form</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                                     <a class="fullscreen-link"><i class="fa fa-expand"></i></a>
                                 </div>
                             </div>
                             <div class="ibox-body">
-                                <form class="form-horizontal" method="post" action="{{ url('/user/update',$user->id)  }}" enctype="multipart/form-data">
+                                <form class="form-horizontal" method="post" action="{{ url('/laporan/updatelaporan',$laporan->id)  }}" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     {{ method_field('PUT') }}
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Nama</label>
+                                        <label class="col-sm-2 col-form-label">Title</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" name="name" type="text" value="{{ $user->name }}">
-                                            @if ($errors->has('name'))
-                                            <div class="error">{{ $errors->first('name') }}</div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Email</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" name="email" type="text" value="{{ $user->email }}">
-                                            @if ($errors->has('email'))
-                                            <div class="error">{{ $errors->first('email') }}</div>
+                                            <input class="form-control" name="title" type="text" value="{{ $laporan->title }}">
+                                            @if ($errors->has('title'))
+                                            <div class="error">{{ $errors->first('title') }}</div>
                                             @endif
                                         </div>
                                     </div>
                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Role</label>
+                                        <label class="col-sm-2 col-form-label">Cover Laporan</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control" name="role" required>
-                                            	<option value="admin">admin</option>
-                                            	<option value="bendahara">bendahara</option>
-                                            	<option value="donatur">donatur</option>
-                                            </select>
+                                            <img src="{{ asset('images/laporan/'.$laporan->gambar) }}" height="300" width="300">
+                                            <input class="form-control" name="gambar" type="file">
+                                        </div>
+                                    </div>
+                                     <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Deskripsi</label>
+                                        <div class="col-sm-10">
+                                            <textarea id="summernote" name="description">{!! $laporan->description !!}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -53,3 +47,10 @@
                         </div>
                     </div>
 @endsection
+@push('script')
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#summernote').summernote();
+}); 
+</script>
+@endpush

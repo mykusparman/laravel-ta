@@ -161,7 +161,24 @@ class AdminController extends Controller
      */
     public function update_user(Request $request, $id)
     {
-        //
+
+        $this->validate($request,[
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users'
+        ]);
+
+         $data=[
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'role'=>$request->role
+        ];
+
+        $user = User::find($id);
+        $user->update(
+            $data
+        );
+        // dd($data);
+        return redirect('user/tampil');
     }
 
     /**
